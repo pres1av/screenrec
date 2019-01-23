@@ -1,0 +1,197 @@
+/*
+Theme Name: Avada Child
+Description: Child theme for Avada theme
+Author: ThemeFusion
+Author URI: https://theme-fusion.com
+Template: Avada
+Version: 1.0.0
+Text Domain:  Avada
+*/
+
+$breakpoints: (
+    'tablet': 50em,
+    'large-phone': 37.5em,
+    'phone': 25em,
+    'small': 22.5em
+);
+
+$color-primary-blue: #006aff;
+$color-primary-red: #f10000;
+$color-white: #ffffff;
+$color-black: #080808;
+$color-light-blue: #0088f7;
+
+@mixin responsive($breakpoint) {
+    @media only screen and (max-width: map-get($breakpoints, $breakpoint)) { @content };
+}
+
+.flex-comparison-table {
+
+    .fa-check-square {
+        color: $color-primary-blue;
+    }
+
+    .fa-window-close {
+        color: $color-primary-red;
+    }
+
+    .fa-question-circle {
+        position: absolute;
+        right: .2em;
+        top: .2em;
+        font-size: .8em;
+        z-index: 3;
+
+        &:hover,
+        &:active,
+        &:focus {
+            color: $color-white;
+
+            & + .tooltiptext {
+                opacity: 1;
+                z-index: 1;
+            }
+        }
+    }
+
+    tr {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        border-top: 1px solid $color-black;
+        border-left: 1px solid $color-black;
+
+        &:last-child {
+            border-bottom: 1px solid $color-black;
+        }
+    }
+
+    td, th {
+        min-height: 100px;
+        flex-basis: calc(100%/6);
+        flex: 1;
+        position: relative;
+        text-align: center;
+        font-size: .9em;
+        line-height: normal;
+        border-right: 1px solid $color-black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        @include responsive(tablet) {
+            font-size: 0.8em;
+
+            &:first-child {
+                flex-basis: 100%;
+            }
+        }
+
+        @include responsive(large-phone) {
+            font-size: 0.7em;
+        }
+
+        @include responsive(phone) {
+            font-size: 0.6em;
+        }
+    }
+
+    th {
+        background-color: $color-primary-red;
+        color: $color-white;
+
+        &:first-child {
+            background-color: transparent;
+
+            @include responsive(tablet) {
+                display: none;
+            }
+        }
+    }
+
+    td {
+
+        &:first-child {
+            background-color: $color-primary-blue;
+            color: $color-white;
+            font-size: 1em;
+
+            @include responsive(tablet) {
+                min-height: 50px;
+            }
+        }
+
+        &:active,
+        &:focus {
+
+            .tooltiptext {
+                opacity: 1;
+                z-index: 1;
+            }
+        }
+
+        @include responsive(tablet) {
+
+            &:hover,
+            &:active,
+            &:focus {
+
+                .fa-question-circle {
+                    color: $color-white;
+                }
+
+                .tooltiptext {
+                    opacity: 1;
+                    z-index: 1;
+                }
+            }
+        }
+    }
+
+    .tooltiptext {
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $color-primary-blue;
+        color: $color-white;
+        text-align: center;
+        padding: 10px;
+        position: absolute;
+        z-index: -1;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        transition: all 0.5s;
+    }
+}
+h3.glsr-shortcode-title {
+    text-align: center;
+    font-weight: 700;
+}
+
+.glsr-form.star-reviews-form {
+
+    input.glsr-field-control {
+        min-height: auto;
+    }
+
+    [type=submit] {
+        appearance: none;
+        background-color: $color-primary-blue;
+        border: none;
+        border-radius: 2px;
+        color: $color-white;
+        padding: 13px 29px;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: $color-light-blue;
+        }
+    }
+}
