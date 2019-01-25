@@ -195,3 +195,20 @@ h3.glsr-shortcode-title {
         }
     }
 }
+
+#wrapper {
+	
+	#main {
+		
+		h2.fusion-post-title {
+			margin-top: 0;
+		}
+		
+		.fusion-post {
+			
+			&-wrapper {
+				border: none;
+			}
+		}
+	}
+}
